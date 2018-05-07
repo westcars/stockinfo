@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.westcars.stockinfo.dao.BltBulletinMapper">
+  <resultMap id="BaseResultMap" type="com.westcars.stockinfo.model.BltBulletin">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="PUBDATE" jdbcType="TIMESTAMP" property="pubdate" />
+    <result column="COMCODE" jdbcType="BIGINT" property="comcode" />
+    <result column="COMNAME" jdbcType="VARCHAR" property="comname" />
+    <result column="BULLETIONCATEGORY" jdbcType="BIGINT" property="bulletioncategory" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CONTENTFORMAT" jdbcType="VARCHAR" property="contentformat" />
+    <result column="KEYWORDS" jdbcType="VARCHAR" property="keywords" />
+    <result column="ENTRYTIME" jdbcType="TIMESTAMP" property="entrytime" />
+    <result column="UPDATETIME" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="GROUNDTIME" jdbcType="TIMESTAMP" property="groundtime" />
+    <result column="UPDATEID" jdbcType="BIGINT" property="updateid" />
+    <result column="RESOURCEID" jdbcType="VARCHAR" property="resourceid" />
+    <result column="RECORDID" jdbcType="VARCHAR" property="recordid" />
+    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+
+  <!--按股票代码查询公告-->
+  <resultMap id="BullentMinMap" type="com.westcars.stockinfo.model.BulletinMin">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="PUBDATE" jdbcType="TIMESTAMP" property="pubdate" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="RECORDID" jdbcType="VARCHAR" property="recordid" />
+    <result column="CONTENT" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+
+  <!--GetBulletinByCode-->
+  <select id="GetBulletinByCode" parameterType="String" resultMap="BullentMinMap">
+SELECT  c.id,CONVERT(varchar,c.PUBDATE,120) PUBDATE,c.TITLE,c.CONTENT,t2.RECORDID from BLT_BULLETINSECU T1
+inner JOIN BLT_BULLETINANNEX T2 on t1.originalcode=t2.originalcode
+inner join BLT_BULLETIN C on c.id=t1.ORIGINALCODE
+WHERE t1.TRADINGCODE=#{code} ORDER BY c.PUBDATE DESC
+</select>
+</mapper>

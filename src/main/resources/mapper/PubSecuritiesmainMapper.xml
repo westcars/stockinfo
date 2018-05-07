@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.westcars.stockinfo.dao.PubSecuritiesmainMapper">
+  <resultMap id="BaseResultMap" type="com.westcars.stockinfo.model.PubSecuritiesmain">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="SECUCODE" jdbcType="BIGINT" property="secucode" />
+    <result column="COMCODE" jdbcType="BIGINT" property="comcode" />
+    <result column="TRADINGCODE" jdbcType="VARCHAR" property="tradingcode" />
+    <result column="SECUABBR" jdbcType="VARCHAR" property="secuabbr" />
+    <result column="CHINAME" jdbcType="VARCHAR" property="chiname" />
+    <result column="CHINAMEABBR" jdbcType="VARCHAR" property="chinameabbr" />
+    <result column="CHISPELLING" jdbcType="VARCHAR" property="chispelling" />
+    <result column="ENGNAME" jdbcType="VARCHAR" property="engname" />
+    <result column="ENGNAMEABBR" jdbcType="VARCHAR" property="engnameabbr" />
+    <result column="EXCHANGECODE" jdbcType="BIGINT" property="exchangecode" />
+    <result column="EXCHANGENAME" jdbcType="VARCHAR" property="exchangename" />
+    <result column="SECUCATEGORYCODEI" jdbcType="BIGINT" property="secucategorycodei" />
+    <result column="SECUCATEGORYCODEII" jdbcType="BIGINT" property="secucategorycodeii" />
+    <result column="SECUCATEGORY" jdbcType="VARCHAR" property="secucategory" />
+    <result column="LISTINGDATE" jdbcType="TIMESTAMP" property="listingdate" />
+    <result column="DELISTINGDATE" jdbcType="TIMESTAMP" property="delistingdate" />
+    <result column="BOARDCODE" jdbcType="BIGINT" property="boardcode" />
+    <result column="BOARDNAME" jdbcType="VARCHAR" property="boardname" />
+    <result column="LISTINGSTATECODE" jdbcType="BIGINT" property="listingstatecode" />
+    <result column="ISIN" jdbcType="VARCHAR" property="isin" />
+    <result column="ENTRYTIME" jdbcType="TIMESTAMP" property="entrytime" />
+    <result column="UPDATETIME" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="GROUNDTIME" jdbcType="TIMESTAMP" property="groundtime" />
+    <result column="UPDATEID" jdbcType="BIGINT" property="updateid" />
+    <result column="RESOURCEID" jdbcType="VARCHAR" property="resourceid" />
+    <result column="RECORDID" jdbcType="VARCHAR" property="recordid" />
+    <result column="COMCODE1" jdbcType="BIGINT" property="comcode1" />
+  </resultMap>
+</mapper>

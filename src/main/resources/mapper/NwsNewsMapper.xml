@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.westcars.stockinfo.dao.NwsNewsMapper">
+  <resultMap id="BaseResultMap" type="com.westcars.stockinfo.model.NwsNews">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="MEDIACODE" jdbcType="BIGINT" property="mediacode" />
+    <result column="MEDIANAME" jdbcType="VARCHAR" property="medianame" />
+    <result column="PUBDATE" jdbcType="TIMESTAMP" property="pubdate" />
+    <result column="WRITINGDATE" jdbcType="TIMESTAMP" property="writingdate" />
+    <result column="COMCODE" jdbcType="BIGINT" property="comcode" />
+    <result column="COMNAME" jdbcType="VARCHAR" property="comname" />
+    <result column="AUTHORS" jdbcType="VARCHAR" property="authors" />
+    <result column="NEWSCATEGORY" jdbcType="BIGINT" property="newscategory" />
+    <result column="ABSTRACTFORMAT" jdbcType="VARCHAR" property="abstractformat" />
+    <result column="SUBTITLE" jdbcType="VARCHAR" property="subtitle" />
+    <result column="KEYWORDS" jdbcType="VARCHAR" property="keywords" />
+    <result column="REPORTLEVEL" jdbcType="SMALLINT" property="reportlevel" />
+    <result column="REPORTTITLE" jdbcType="VARCHAR" property="reporttitle" />
+    <result column="OBJECTCODE" jdbcType="BIGINT" property="objectcode" />
+    <result column="AREACODE" jdbcType="BIGINT" property="areacode" />
+    <result column="PROVINCECODE" jdbcType="BIGINT" property="provincecode" />
+    <result column="CONCLUSION" jdbcType="VARCHAR" property="conclusion" />
+    <result column="LINKADDRESS" jdbcType="VARCHAR" property="linkaddress" />
+    <result column="INFOLEVEL" jdbcType="SMALLINT" property="infolevel" />
+    <result column="ENTRYTIME" jdbcType="TIMESTAMP" property="entrytime" />
+    <result column="UPDATETIME" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="GROUNDTIME" jdbcType="TIMESTAMP" property="groundtime" />
+    <result column="UPDATEID" jdbcType="BIGINT" property="updateid" />
+    <result column="RESOURCEID" jdbcType="VARCHAR" property="resourceid" />
+    <result column="RECORDID" jdbcType="VARCHAR" property="recordid" />
+    <result column="ISCOMMENT" jdbcType="SMALLINT" property="iscomment" />
+    <result column="NEWSCOMMENT" jdbcType="VARCHAR" property="newscomment" />
+    <result column="SECTORCODE" jdbcType="BIGINT" property="sectorcode" />
+    <result column="INIPUBDATE" jdbcType="TIMESTAMP" property="inipubdate" />
+    <result column="TITLELABEL" jdbcType="VARCHAR" property="titlelabel" />
+    <result column="ISPICTURENEWS" jdbcType="CHAR" property="ispicturenews" />
+    <result column="SYNSTATE" jdbcType="BIGINT" property="synstate" />
+    <result column="ABSTRACT" jdbcType="LONGVARCHAR" property="abstract" />
+  </resultMap>
+<!--按股票代码获取新闻-->
+  <select id="GetNewsByCode" parameterType="String" resultMap="BaseResultMap">
+SELECT B.id, B.PUBDATE,
+B.ReportTitle,b.ABSTRACT from NWS_NewsSecu A
+INNER join NWS_NEWS B ON A.ORIGINALCODE=B.ID
+where a.TRADINGCODE=#{code}
+ORDER BY B.PUBDATE desc
+</select>
+</mapper>
