@@ -42,7 +42,7 @@
   </resultMap>
 <!--按股票代码获取新闻-->
   <select id="GetNewsByCode" parameterType="String" resultMap="BaseResultMap">
-SELECT B.id, B.PUBDATE,
+SELECT B.id, CONVERT(varchar, B.PUBDATE, 120 ) as PUBDATE,
 B.ReportTitle,b.ABSTRACT from NWS_NewsSecu A
 INNER join NWS_NEWS B ON A.ORIGINALCODE=B.ID
 where a.TRADINGCODE=#{code}

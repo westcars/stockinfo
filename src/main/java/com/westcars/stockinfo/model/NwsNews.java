@@ -17,7 +17,7 @@ public class NwsNews {
     private String medianame;
 
     @Column(name = "PUBDATE")
-    private Date pubdate;
+    private String pubdate;
 
     @Column(name = "WRITINGDATE")
     private Date writingdate;
@@ -154,14 +154,14 @@ public class NwsNews {
     /**
      * @return PUBDATE
      */
-    public Date getPubdate() {
+    public String getPubdate() {
         return pubdate;
     }
 
     /**
      * @param pubdate
      */
-    public void setPubdate(Date pubdate) {
+    public void setPubdate(String pubdate) {
         this.pubdate = pubdate;
     }
 
